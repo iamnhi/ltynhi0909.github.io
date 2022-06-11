@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Venus Moblie - Sign In & Sign Up </title>
+    <!-- Css -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/login-sign-up.css">
+</head>
+
+<body>
+    <div class="containerr">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Sign In -->
+                <form action="#" class="sign-in-form" method="POST" id="VueDangNhap">
+                    <h2 class="title">
+                        Sign in
+                    </h2>
+                    <div class="input-field">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" placeholder="Username" v-model="userDangNhap">
+                    </div>
+                    <!--  -->
+                    <div class="input-field">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="text" placeholder="Password" v-model="passDangNhap">
+                    </div>
+                    <!--  -->
+                    <input type="button" value="Login" class="btn solid" v-on:click="kiemtraDangNhap" id="btnDangNhap">
+                    <!-- thong bao lỗi -->
+                    <div v-if="coLoiDangNhap == true" class="alert alert-warning alert-dismissible fade show"
+                        role="alert">
+                        {{thongBaoDangNhap}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                            onClick="window.location.reload();">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Thong báo đăng nhập thành công -->
+                    <div class="alert alert-warning alert-dismissible" role="alert"
+                        v-if="daKiemTraDangNhap == true && coLoiDangNhap == false">
+                        Tài khoản và mật khẩu không đúng, vui lòng thử lại.
+                    </div>
+                    <!--  -->
+                    <p class="social-text">Or Sign in with social plantforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+                <!-- Sign Up -->
+                <form action="#" class="sign-up-form" method="POST" id="VueDangKy">
+                    <h2 class="title">
+                        Sign up
+                    </h2>
+                    <!--  -->
+                    <div class="input-field">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" placeholder="Username" v-model="userDangKy">
+                    </div>
+                    <!--  -->
+                    <div class="input-field">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <input type="email" placeholder="Email" v-model="emailDangKy">
+                    </div>
+                    <!--  -->
+                    <div class="input-field">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="text" placeholder="Password" v-model="passDangKy">
+                    </div>
+                    <!--  -->
+                    <input type="button" value="Sign Up" class="btn solid" v-on:click="kiemtraDangKy" id="btnDangKy">
+                    <!-- Kiểm tra đăng kí -->
+                    <div v-if="coLoiDangKy == true" class="alert alert-warning alert-dismissible fade show"
+                        role="alert">
+                        {{thongBaoDangKy}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                            onClick="window.location.reload();">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Đăng ký thành công -->
+                    <div v-if="coLoiDangKy == false && daKiemTraDangKy == true"
+                        class="alert alert-dismissible fade show alert-success" role="alert">
+                        Bạn đã đăng ký thành công
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                            onClick="window.location.reload();">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--  -->
+                    <p class="social-text">Or Sign up with social plantforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+                <!--  -->
+            </div>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>
+                        Create Account
+                    </h3>
+                    <p>
+                        Register a new account with Venus Moblie, you can pay through this account.
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Sign up
+                    </button>
+                </div>
+
+                <img src="assets/img/sign-in-sign-up/sign-out.svg" class="image" alt="Dang-nhap">
+            </div>
+            <!--  -->
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>
+                        There's an account.
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae dolorum quidem nemo
+                        sapiente placeat.
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Sign in
+                    </button>
+                </div>
+
+                <img src="assets/img/sign-in-sign-up/sign-u.svg" class="image" alt="Dang-nhap">
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+    <!--  -->
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="vendor/vuejs/vue2.js"></script>
+    <script src="vendor/kit-fontawesome-js/kit-font-awesome.js"></script>
+    <script src="assets/js/login-sign-up.js"></script>
+
+    <!-- Kiem tra rang buoc du lieu -->
+    <script>
+        var vmDangNhap = new Vue({
+            el: '#VueDangNhap',
+            data: {
+                userDangNhap: '',
+                passDangNhap: '',
+
+                daKiemTraDangNhap: '',
+                coLoiDangNhap: '',
+                thongBaoDangNhap: ''
+            },
+            methods: {
+                kiemtraDangNhap() {
+                    this.daKiemTraDangNhap = false;
+                    this.coLoiDangNhap = false;
+                    this.thongBaoDangNhap = '';
+                    if (this.userDangNhap == '') {
+                        this.coLoiDangNhap = true;
+                        this.thongBaoDangNhap += 'Vui lòng nhập tài khoản. ';
+                    }
+                    else if (this.userDangNhap == 'admin') {
+                        this.coLoiDangNhap = true;
+                        this.thongBaoDangNhap += 'Tài khoản Admin đã bị khóa. ';
+                    }
+
+                    // 
+                    if (this.passDangNhap == '') {
+                        this.coLoiDangNhap = true;
+                        this.thongBaoDangNhap += 'Mật khẩu không thể bỏ trống. ';
+                    }
+                    // 
+                    this.daKiemTraDangNhap = true;
+                    if (this.coLoiDangNhap == false) {
+                        if (this.userDangNhap == 'ltynhi' && this.passDangNhap == '12345') {
+                            window.location.href = 'index.html';
+                        }
+                    }
+                }
+            }
+        });
+        //
+        var vmDangKy = new Vue({
+            el: '#VueDangKy',
+            data: {
+                userDangKy: '',
+                passDangKy: '',
+                emailDangKy: '',
+
+                daKiemTraDangKy: '',
+                coLoiDangKy: '',
+                thongBaoDangKy: ''
+            },
+            methods: {
+                kiemtraDangKy() {
+                    this.daKiemTraDangKy = false;
+                    this.coLoiDangKy = false;
+                    this.thongBaoDangKy = '';
+                    if (this.userDangKy == '') {
+                        this.coLoiDangKy = true;
+                        this.thongBaoDangKy += 'Vui lòng nhập tài khoản. ';
+
+                    }
+                    else if (this.userDangKy == 'admin') {
+                        this.coLoiDangKy = true;
+                        this.thongBaoDangKy += 'Tài khoản Admin đã bị khóa. ';
+
+                    }
+
+                    // 
+                    if (this.passDangKy == '') {
+                        this.coLoiDangKy = true;
+                        this.thongBaoDangKy += 'Mật khẩu không thể bỏ trống. ';
+
+                    }
+
+                    if (this.emailDangKy == '') {
+                        this.coLoiDangKy = true;
+                        this.thongBaoDangKy += 'Email không thể bỏ trống. ';
+                    } else if (!this.validateEmail(this.emailDangKy)) {
+                        this.thongBaoDangKy += ('Vui lòng nhập email đúng định dạng');
+                    }
+                    // 
+                    this.daKiemTraDangKy = true;
+                },
+                validateEmail: function (email) {
+                    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

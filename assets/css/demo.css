@@ -1,0 +1,35 @@
+.item{
+    display: flex;
+    background-color: rgb(255,255,255);
+    flex-direction: row;
+    justify-content: center;
+    /*  */
+}
+.image-spham{
+    margin-top: 20px;
+    box-shadow: 0 0 5px 1px white;
+    transition: 1s;
+}
+.image-spham img{
+    display: block;
+    border-radius: 0.1px;
+}
+.item{
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
+    transition: 1s;
+}
+.item img{
+    display: block;
+    border-radius: 0.1px;
+}
+.image-spham:hover{
+    transform: scale(1.05);
+    z-index: .2;
+}
+.item:hover{
+    transform: scale(1.05);
+    z-index: .01;
+}
+
+
+
